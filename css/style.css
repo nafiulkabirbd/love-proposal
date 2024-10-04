@@ -1,0 +1,252 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #fcb69f, #ff9a9e);
+  overflow: hidden;
+}
+
+/* Container Styles */
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 80%;
+  max-width: 500px;
+  animation: slideIn 1.5s ease-out;
+}
+
+/* Heading and Description Animations */
+h1 {
+  font-size: 3.5em;
+  color: #ff6b81;
+  margin-bottom: 15px;
+  animation: fadeIn 1s ease;
+}
+
+.description {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 30px;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Button Styles and Animations */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 1.5em;
+  background-color: #ff6b81;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: buttonPop 1.2s ease forwards;
+  transform: scale(0);
+}
+
+button:hover {
+  background-color: #ff4757;
+  transform: translateY(-5px);
+}
+
+.no-button {
+  background-color: #576574;
+}
+
+.no-button:hover {
+  background-color: #2f3542;
+}
+
+/* Floating Elements */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heart,
+.star {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  animation: float 6s infinite ease-in-out;
+  opacity: 0.7;
+}
+
+.heart {
+  background-color: #ff6b81;
+  transform: rotate(-45deg);
+}
+
+.heart:before,
+.heart:after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #ff6b81;
+  border-radius: 50%;
+}
+
+.heart:before {
+  top: -20px;
+  left: 0;
+}
+
+.heart:after {
+  top: 0;
+  left: 20px;
+}
+
+.star {
+  background-color: yellow;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  animation-duration: 8s;
+}
+
+/* Keyframe Animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes buttonPop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-100px);
+    opacity: 1;
+  }
+}
+
+/* Randomize Floating Elements */
+.heart:nth-child(1) {
+  left: 20%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+
+.heart:nth-child(2) {
+  left: 80%;
+  animation-duration: 7s;
+  animation-delay: 3s;
+}
+
+.star:nth-child(3) {
+  left: 30%;
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+
+.star:nth-child(4) {
+  left: 70%;
+  animation-duration: 9s;
+  animation-delay: 4s;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .description {
+    font-size: 1em;
+  }
+
+  button {
+    padding: 12px 25px;
+    font-size: 1.2em;
+  }
+
+  .container {
+    width: 90%;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .description {
+    font-size: 0.9em;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .heart,
+  .star {
+    width: 30px;
+    height: 30px;
+  }
+}
