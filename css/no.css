@@ -1,0 +1,202 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Background Animation */
+.background-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff9a9e, #fcb69f);
+  animation: backgroundMove 8s ease infinite;
+  z-index: -1;
+}
+
+/* Container Styles */
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 80%;
+  max-width: 500px;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Heading and Description */
+h1 {
+  font-size: 3.5em;
+  color: #ff6b81;
+  margin-bottom: 15px;
+  animation: shake 0.5s infinite alternate;
+}
+
+.description {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 30px;
+  animation: fadeIn 2s ease;
+}
+
+/* Sad Heart Animation Styles */
+.high-animation-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.sad-heart {
+  width: 70px;
+  height: 70px;
+  background-color: #ff6b81;
+  position: relative;
+  transform: rotate(-45deg);
+  animation: float 4s infinite ease-in-out;
+}
+
+.sad-heart:before,
+.sad-heart:after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #ff6b81;
+  border-radius: 50%;
+}
+
+.sad-heart:before {
+  top: -35px;
+  left: 0;
+}
+
+.sad-heart:after {
+  left: 35px;
+  top: 0;
+}
+
+/* Go Back Button Styles */
+.go-back-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #ff6b81;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 10px 20px rgba(255, 107, 129, 0.3);
+}
+
+.go-back-button:hover {
+  transform: translateY(-5px);
+  background-color: #e74c3c;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(-5px, 5px);
+  }
+  100% {
+    transform: translate(5px, -5px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-45deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-20px) rotate(-45deg);
+    opacity: 1;
+  }
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  .description {
+    font-size: 1em;
+  }
+
+  .container {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .sad-heart {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .description {
+    font-size: 0.9em;
+  }
+
+  .container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .sad-heart {
+    width: 50px;
+    height: 50px;
+  }
+}
